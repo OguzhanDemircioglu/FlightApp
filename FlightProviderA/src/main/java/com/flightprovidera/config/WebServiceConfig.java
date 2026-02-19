@@ -23,7 +23,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
         return new ServletRegistrationBean<>(servlet, "/ws/*");
-    }
+    }//Soap isteklerini SpringMVC karşılamasın bu kısım karşılasın
 
     @Bean(name = "flights")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema flightsSchema) {
@@ -32,7 +32,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         wsdl11Definition.setLocationUri("/ws");
         wsdl11Definition.setTargetNamespace("http://flightprovidera.com/soap");
         wsdl11Definition.setSchema(flightsSchema);
-        return wsdl11Definition;
+        return wsdl11Definition;//wsdl üret
     }
 
     @Bean
