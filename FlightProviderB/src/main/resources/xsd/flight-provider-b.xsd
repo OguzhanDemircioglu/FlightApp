@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://flightproviderb.com/soap"
+           targetNamespace="http://flightproviderb.com/soap"
+           elementFormDefault="qualified">
+
+    <xs:element name="availabilitySearchRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="departure" type="xs:string"/>
+                <xs:element name="arrival" type="xs:string"/>
+                <xs:element name="departureDate" type="xs:dateTime"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="availabilitySearchResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hasError" type="xs:boolean"/>
+                <xs:element name="errorMessage" type="xs:string" minOccurs="0"/>
+                <xs:element name="flightOptions" type="tns:flight" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="flight">
+        <xs:sequence>
+            <xs:element name="flightNumber" type="xs:string"/>
+            <xs:element name="departure" type="xs:string"/>
+            <xs:element name="arrival" type="xs:string"/>
+            <xs:element name="departuredatetime" type="xs:dateTime"/>
+            <xs:element name="arrivaldatetime" type="xs:dateTime"/>
+            <xs:element name="price" type="xs:decimal"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
