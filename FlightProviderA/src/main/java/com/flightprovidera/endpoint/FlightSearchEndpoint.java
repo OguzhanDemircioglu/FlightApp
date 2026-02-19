@@ -55,5 +55,5 @@ public class FlightSearchEndpoint {
         }
 
         return response;
-    }
+    }//Soap responsu üretir
 }
